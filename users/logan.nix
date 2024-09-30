@@ -20,6 +20,8 @@ in
     programs.git = {
       enable = true;
       lfs.enable = true;
+      userName = "link00000000";
+      userEmail = "crandall.logan@gmail.com";
     };
 
     # TODO: Setup copying config
