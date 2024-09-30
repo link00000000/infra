@@ -62,17 +62,17 @@ in
           ^nix flake init --template $"https://flakehub.com/f/the-nix-way/dev-templates/*#($parsed_template | get name)" ...$rest
         }
 
-      def battery [] {
-        open /sys/class/power_supply/BAT1/capacity
-      }
-
-      def --wrapped sudo [...rest] {
-        if ($rest | is-empty) {
-          ^sudo -E -s nu
-        } else {
-          ^sudo ...$rest
+        def battery [] {
+          open /sys/class/power_supply/BAT1/capacity
         }
-      }
+
+        def --wrapped sudo [...rest] {
+          if ($rest | is-empty) {
+            ^sudo -E -s nu
+          } else {
+            ^sudo ...$rest
+          }
+        }
       '';
     };
 
