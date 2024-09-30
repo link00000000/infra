@@ -24,6 +24,10 @@ in
       userEmail = "crandall.logan@gmail.com";
     };
 
+    programs.lazygit = {
+      enable = true;
+    };
+
     # TODO: Setup copying config
     programs.neovim = {
       enable = true;
