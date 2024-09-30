@@ -35,6 +35,10 @@ in
       defaultEditor = true;
     };
 
+    programs.ripgrep = {
+      enable = true;
+    };
+
     # TODO: Setup copying nushell config
     programs.nushell = {
       enable = true;
