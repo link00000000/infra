@@ -6,7 +6,8 @@
 { pkgs, lib, ... }:
 
 {
-  imports = [
+  imports =
+  [
     ./hardware-configuration.nix
 
     ../../modules/nixos.nix
@@ -15,11 +16,10 @@
     ../../modules/sudo.nix
     ../../modules/openssh.nix
     ../../modules/tailscale.nix
-    ../../modules/sddm.nix
-    ../../modules/polkit.nix
-    ../../modules/pipewire.nix
 
-    ../../users/logan
+    ../../users/logan.nix
+
+    ../../modules/desktop-environments/hyprland.nix # TODO: Import this per user?
   ];
 
   time.timeZone = "America/New_York";
@@ -37,8 +37,6 @@
     firefox
     nix-search-cli
   ];
-
-  # TODO: Make microphone sound better
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
