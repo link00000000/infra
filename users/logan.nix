@@ -27,7 +27,6 @@ in
       userName = "link00000000";
       userEmail = "crandall.logan@gmail.com";
     };
-
     programs.lazygit = {
       enable = true;
     };
@@ -98,6 +97,10 @@ in
     programs.wezterm = {
       enable = true;
       package = inputs.wezterm.packages.${pkgs.system}.default;
+    };
+
+    programs.tealdeer = {
+      enable = true;
     };
 
     # TODO: Setup clipboard history
