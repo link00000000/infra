@@ -16,6 +16,10 @@ in
 
   home-manager.users.${username} = { pkgs, ... }:
   {
+    home.packages = [
+      pkgs.parsec-bin
+    ];
+
     # TODO: Setup copying config
     programs.git = {
       enable = true;
