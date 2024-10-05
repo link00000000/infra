@@ -234,6 +234,10 @@ in
           ^$env.EDITOR /etc/nixos/users/${username}.nix
         }
 
+        def "config nixos" [] {
+          ^$env.EDITOR /etc/nixos/flake.nix
+        }
+
         def --wrapped "nix flake init" [
         --template: string
           ...rest
