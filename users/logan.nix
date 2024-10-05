@@ -18,6 +18,7 @@ in
   {
     home.packages = with pkgs; [
       parsec-bin
+      fzf
     ];
 
     # TODO: Add hyprexpo plugin
