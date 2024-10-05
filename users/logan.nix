@@ -14,11 +14,10 @@ in
     shell = pkgs.nushell;
   };
 
-  home-manager.users.${username} = { pkgs, ... }:
+  home-manager.users.${username} = { pkgs, config, ... }:
   {
     home.packages = with pkgs; [
       parsec-bin
-      kitty
     ];
 
     # TODO: Add hyprexpo plugin
@@ -29,7 +28,7 @@ in
         "debug:disable_logs" = true;
       
         # Refer to https://wiki.hyprland.org/Configuring/Variables/
-        "$terminal" = "${pkgs.kitty}/bin/kitty";
+        "$terminal" = "${inputs.wezterm.packages.${pkgs.system}.default}/bin/wezterm";
         "$fileManager" = "dolphin"; # TODO: Setup a file manager
         "$menu" = "${pkgs.tofi}/bin/tofi-drun --drun-launch=true";
 
@@ -225,6 +224,10 @@ in
     # TODO: Setup copying nushell config
     programs.nushell = {
       enable = true;
+
+      # HACK: Workaround until https://github.com/nix-community/home-manager/issues/4313 is merged
+      environmentVariables = builtins.mapAttrs (name: value: "\"${builtins.toString value}\"") config.home.sessionVariables;
+
       extraConfig = ''
         def --wrapped "nix flake init" [
         --template: string
