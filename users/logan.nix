@@ -229,7 +229,11 @@ in
       # HACK: Workaround until https://github.com/nix-community/home-manager/issues/4313 is merged
       environmentVariables = builtins.mapAttrs (name: value: "\"${builtins.toString value}\"") config.home.sessionVariables;
 
-      extraConfig = ''
+      extraConfig = /* nu */ ''
+        def "config home" [] {
+          ^$env.EDITOR /etc/nixos/users/${username}.nix
+        }
+
         def --wrapped "nix flake init" [
         --template: string
           ...rest
