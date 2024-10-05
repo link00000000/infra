@@ -17,7 +17,7 @@
     ../../modules/openssh.nix
     ../../modules/tailscale.nix
 
-    ../../users/logan.nix
+    ../../users/logan
 
     ../../modules/desktop-environments/hyprland.nix # TODO: Import this per user?
   ];
