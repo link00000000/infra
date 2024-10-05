@@ -231,11 +231,13 @@ in
 
       extraConfig = /* nu */ ''
         def "config home" [] {
-          ^$env.EDITOR /etc/nixos/users/${username}.nix
+          cd /etc/nixos/users/${username}
+          ^$env.EDITOR default.nix
         }
 
         def "config nixos" [] {
-          ^$env.EDITOR /etc/nixos/flake.nix
+          cd /etc/nixos
+          ^$env.EDITOR flake.nix
         }
 
         def --wrapped "nix flake init" [
