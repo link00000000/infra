@@ -24,11 +24,6 @@
 
     wezterm.url = "github:wez/wezterm?dir=nix";
 
-    #hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-
-    #hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    #hyprland-plugins.inputs.hyprland.follows = "hyprland";
-
     # TODO: Setup impemanence
     # TODO: Setup Mic92/nix-fast-build
   };
