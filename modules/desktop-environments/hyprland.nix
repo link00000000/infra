@@ -19,7 +19,7 @@ with lib;
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.default;
+    #package = inputs.hyprland.packages.${pkgs.system}.default;
     xwayland.enable = true;
   };
 
