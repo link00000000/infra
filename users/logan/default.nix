@@ -17,6 +17,7 @@ in
   home-manager.users.${username} = { pkgs, config, ... }:
   {
     home.packages = with pkgs; [
+      hyprpaper
       parsec-bin
       fzf
       rofi
