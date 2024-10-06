@@ -26,7 +26,11 @@ in
     # TODO: Add hyprexpo plugin
     wayland.windowManager.hyprland = {
       enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.default;
       xwayland.enable = true;
+      plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
+        hyprexpo
+      ];
       settings = {
         "debug:disable_logs" = true;
       

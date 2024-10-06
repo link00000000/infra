@@ -1,4 +1,4 @@
-{ config, pkgs, lib, pkgs-unstable, ... }:
+{ config, pkgs, lib, pkgs-unstable, inputs, ... }:
 
 
 with lib;
@@ -12,7 +12,6 @@ with lib;
     kdePackages.polkit-kde-agent-1
     kdePackages.qtwayland
     tofi
-    hyprpaper
     wl-clipboard
   ];
 
@@ -20,6 +19,7 @@ with lib;
 
   programs.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.default;
     xwayland.enable = true;
   };
 
