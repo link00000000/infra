@@ -193,6 +193,8 @@ in
 
           "$mainMod, mouse_down, workspace, e+1"
           "$mainMod, mouse_up, workspace, e-1"
+
+          "$mainMod, TAB, hyprexpo:expo, toggle"
         ];
 
         bindm = [
@@ -201,6 +203,16 @@ in
         ];
 
         windowrulev2 = "suppressevent maximize, class:.*";
+
+        plugin.hyprexpo = {
+          columns = 3;
+          gap_size = 5;
+          
+          enable_gesture = true;
+          gesture_fingers = 3;
+          gesture_distance = 300;
+          gesture_positive = false;
+        };
       };
     };
 
