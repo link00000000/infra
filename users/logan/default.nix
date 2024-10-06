@@ -19,6 +19,7 @@ in
     home.packages = with pkgs; [
       parsec-bin
       fzf
+      rofi
     ];
 
     # TODO: Add hyprexpo plugin
@@ -31,7 +32,7 @@ in
         # Refer to https://wiki.hyprland.org/Configuring/Variables/
         "$terminal" = "${inputs.wezterm.packages.${pkgs.system}.default}/bin/wezterm";
         "$fileManager" = "dolphin"; # TODO: Setup a file manager
-        "$menu" = "${pkgs.tofi}/bin/tofi-drun --drun-launch=true";
+        "$menu" = "${pkgs.rofi}/bin/rofi";
 
         # See https://wiki.hyprland.org/Configuring/Keywords/
         "$mainMod" = "SUPER";
