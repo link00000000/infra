@@ -35,7 +35,7 @@ in
         # Refer to https://wiki.hyprland.org/Configuring/Variables/
         "$terminal" = "${inputs.wezterm.packages.${pkgs.system}.default}/bin/wezterm";
         "$fileManager" = "dolphin"; # TODO: Setup a file manager
-        "$menu" = "${pkgs.rofi-wayland}/bin/rofi";
+        "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
 
         # See https://wiki.hyprland.org/Configuring/Keywords/
         "$mainMod" = "SUPER";
