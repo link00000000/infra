@@ -20,7 +20,7 @@ in
       hyprpaper
       parsec-bin
       fzf
-      rofi
+      rofi-wayland
     ];
 
     wayland.windowManager.hyprland = {
@@ -35,7 +35,7 @@ in
         # Refer to https://wiki.hyprland.org/Configuring/Variables/
         "$terminal" = "${inputs.wezterm.packages.${pkgs.system}.default}/bin/wezterm";
         "$fileManager" = "dolphin"; # TODO: Setup a file manager
-        "$menu" = "${pkgs.rofi}/bin/rofi";
+        "$menu" = "${pkgs.rofi-wayland}/bin/rofi";
 
         # See https://wiki.hyprland.org/Configuring/Keywords/
         "$mainMod" = "SUPER";
