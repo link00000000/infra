@@ -24,6 +24,7 @@ in
       fzf
       rofi-wayland
       wireshark
+      nil
     ];
 
     wayland.windowManager.hyprland = {
