@@ -8,19 +8,19 @@
 {
   imports =
   [
+    ../../system/modules/bluetooth.nix
+    ../../system/modules/home-manager.nix
+    ../../system/modules/nix.nix
+    ../../system/modules/nixos.nix
+    ../../system/modules/openssh.nix
+    ../../system/modules/sudo.nix
+    ../../system/modules/tailscale.nix
+
+    ../../home/users/logan
+
+    ../../system/modules/hyprland.nix # TODO: Import this per user
+
     ./hardware-configuration.nix
-
-    ../../modules/nixos.nix
-    ../../modules/nix.nix
-    ../../modules/home-manager.nix
-    ../../modules/sudo.nix
-    ../../modules/openssh.nix
-    ../../modules/tailscale.nix
-    ../../modules/blueman.nix
-
-    ../../users/logan
-
-    ../../modules/desktop-environments/hyprland.nix # TODO: Import this per user?
   ];
 
   environment.systemPackages = with pkgs; [
@@ -45,11 +45,6 @@
     interfaces.wlan0.useDHCP = lib.mkDefault true;
   };
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
@@ -66,12 +61,7 @@
 
   # TODO: Make microphone sound better
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  # Do not change
   system.stateVersion = "20.03";
 }
 
