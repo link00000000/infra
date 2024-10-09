@@ -23,6 +23,7 @@ in
       parsec-bin
       fzf
       rofi-wayland
+      curl
       wireshark
       nil
     ];
