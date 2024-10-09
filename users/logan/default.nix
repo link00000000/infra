@@ -10,9 +10,11 @@ in
     home = "/home/logan";
     initialPassword = "password";
     isNormalUser = true;
-    extraGroups = [ "wheel" "admin" ];
+    extraGroups = [ "wheel" "admin" "wireshark" ];
     shell = pkgs.nushell;
   };
+
+  programs.wireshark.enable = true;
 
   home-manager.users.${username} = { pkgs, config, ... }:
   {
@@ -21,6 +23,7 @@ in
       parsec-bin
       fzf
       rofi-wayland
+      wireshark
     ];
 
     wayland.windowManager.hyprland = {
