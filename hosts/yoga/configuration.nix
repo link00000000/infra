@@ -16,6 +16,7 @@
     ../../modules/sudo.nix
     ../../modules/openssh.nix
     ../../modules/tailscale.nix
+    ../../modules/blueman.nix
 
     ../../users/logan
 
