@@ -1,21 +1,21 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
     ./firefox
+    ./fzf
     ./git
     ./hyprland
-    ./nix-search-cli
-    ./parsec
-    ./wireshark
-    ./ripgrep
-    ./neovim
-    ./nushell
-    ./wezterm
-    ./tealdeer
-    ./fzf
-    ./rofi-wayland
     ./hyprpaper
+    ./kitty
+    ./neovim
+    ./nix-search-cli
+    ./nushell
+    ./parsec
+    ./ripgrep
+    ./rofi-wayland
+    ./tealdeer
+    ./wireshark
   ];
 
   # TODO: Setup clipboard history
@@ -28,4 +28,6 @@
   };
 
   programs.home-manager.enable = true;
+
+  home.packages = [ pkgs.kitty ];
 }

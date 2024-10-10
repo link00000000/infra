@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    hyprpaper
-      rofi-wayland
+    rofi-wayland
   ];
 }

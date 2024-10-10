@@ -3,6 +3,7 @@
 {
   imports = [
     ../../system/modules/bluetooth.nix
+    ../../system/modules/hyprland.nix
     ../../system/modules/locale.nix
     ../../system/modules/network-manager.nix
     ../../system/modules/nix.nix
@@ -10,6 +11,7 @@
     ../../system/modules/openssh.nix
     ../../system/modules/polkit.nix
     ../../system/modules/power-management.nix
+    ../../system/modules/sddm.nix
     ../../system/modules/sound.nix
     ../../system/modules/sudo.nix
     ../../system/modules/systemd-boot.nix
