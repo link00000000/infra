@@ -16,7 +16,7 @@
     "debug:disable_logs" = true;
   
     # Refer to https://wiki.hyprland.org/Configuring/Variables/
-    "$terminal" = "${inputs.wezterm.packages.${pkgs.system}.default}/bin/wezterm";
+    "$terminal" = "${pkgs.kitty}/bin/kitty";
     "$fileManager" = "dolphin"; # TODO: Setup a file manager
     "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
 
