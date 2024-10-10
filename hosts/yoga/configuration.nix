@@ -1,32 +1,33 @@
 { pkgs, lib, ... }:
 
 {
-  imports =
-  [
+  imports = [
     ../../system/modules/bluetooth.nix
-    ../../system/modules/home-manager.nix
     ../../system/modules/locale.nix
     ../../system/modules/network-manager.nix
     ../../system/modules/nix.nix
     ../../system/modules/nixos.nix
     ../../system/modules/openssh.nix
+    ../../system/modules/polkit.nix
     ../../system/modules/power-management.nix
     ../../system/modules/sound.nix
     ../../system/modules/sudo.nix
     ../../system/modules/systemd-boot.nix
     ../../system/modules/tailscale.nix
+    ../../system/modules/utils.nix
 
-    ../../home/users/logan
+    ../../users/logan
 
-    ../../system/modules/hyprland.nix # TODO: Import this per user
+    #../../system/modules/hyprland.nix # TODO: Import this per user
 
     ./hardware-configuration.nix
   ];
 
+  # TODO: Setup automatic garbage collection
+  # TODO: Setup XDG portal
+
   environment.systemPackages = with pkgs; [
     curl
-    firefox
-    nix-search-cli
   ];
 
   # Networking
