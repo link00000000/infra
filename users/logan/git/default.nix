@@ -10,6 +10,9 @@
     aliases = {
       ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi";
     };
+    extraConfig = {
+      safe.directory = [ "/etc/nixos" ];
+    };
   };
 
   programs.lazygit.enable = true;

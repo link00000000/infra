@@ -20,16 +20,20 @@
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
     # TODO: Setup impemanence
     # TODO: Setup Mic92/nix-fast-build
   };
 
-  outputs = { self, home-manager, ... }@inputs: {
+  outputs = { self, home-manager, nixos-wsl, ... }@inputs: {
     nixosConfigurations = {
       yoga = let system = "x86_64-linux"; in inputs.nixpkgs.lib.nixosSystem {
-        system = system;
+        inherit system;
+
         specialArgs.inputs = inputs;
         specialArgs.pkgs-unstable = inputs.nixpkgs-unstable.outputs.legacyPackages.${system};
+
         modules = [
           ./hosts/yoga/configuration.nix 
           home-manager.nixosModules.home-manager
@@ -39,6 +43,24 @@
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
+      };
+
+      wsl = let system = "x86_64-linux"; in inputs.nixpkgs.lib.nixosSystem {
+        inherit system;
+
+        specialArgs.inputs = inputs;
+        specialArgs.pkgs-unstable = inputs.nixpkgs-unstable.outputs.legacyPackages.${system};
+
+        modules = [
+          ./hosts/wsl/configuration.nix
+	  nixos-wsl.nixosModules.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+          }
+	];
       };
     };
   };

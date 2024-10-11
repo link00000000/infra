@@ -11,7 +11,7 @@ in
     initialPassword = "password";
     isNormalUser = true;
     extraGroups = [ "wheel" "admin" "wireshark" ];
-    shell = pkgs.bash;
+    shell = pkgs.nushell;
   };
 
   home-manager.users.${username} = import ./home.nix;

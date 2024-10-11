@@ -28,10 +28,6 @@
   # TODO: Setup automatic garbage collection
   # TODO: Setup XDG portal
 
-  environment.systemPackages = with pkgs; [
-    curl
-  ];
-
   # Networking
   networking.hostName = "yoga";
   networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
