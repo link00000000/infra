@@ -13,6 +13,8 @@
 
   environment.sessionVariables.BROWSER = "explorer.exe";
 
+  programs.wireshark.enable = true;
+
   # WSL
   wsl.enable = true;
   wsl.defaultUser = "logan";
