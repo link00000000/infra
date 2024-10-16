@@ -1,10 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, ... }@inputs:
 
 let
   username = "logan";
 
 in
 {
+  imports = [
+    #./theme.nix
+    ../../system/modules/wireshark.nix
+  ];
+
   users.users.${username} = {
     name = username;
     home = "/home/logan";

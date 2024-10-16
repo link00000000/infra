@@ -22,11 +22,16 @@
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
+    #stylix.url = "github:danth/stylix/release-24.05";
+    #stylix.inputs.nixpkgs.follows = "nixpkgs";
+
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+
     # TODO: Setup impemanence
     # TODO: Setup Mic92/nix-fast-build
   };
 
-  outputs = { self, home-manager, nixos-wsl, ... }@inputs: {
+  outputs = { self, ... }@inputs: {
     nixosConfigurations = {
       yoga = let system = "x86_64-linux"; in inputs.nixpkgs.lib.nixosSystem {
         inherit system;
@@ -36,7 +41,8 @@
 
         modules = [
           ./hosts/yoga/configuration.nix 
-          home-manager.nixosModules.home-manager
+          #inputs.stylix.nixosModules.stylix
+          inputs.home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -53,14 +59,14 @@
 
         modules = [
           ./hosts/wsl/configuration.nix
-	  nixos-wsl.nixosModules.default
-          home-manager.nixosModules.home-manager
+          inputs.nixos-wsl.nixosModules.default
+          inputs.home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
-	];
+        ];
       };
     };
   };

@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -9,9 +9,11 @@
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
+
     plugins = with pkgs.hyprlandPlugins; [
       hyprexpo
     ];
+
     settings = {
     "debug:disable_logs" = true;
   
@@ -64,13 +66,12 @@
       border_size = 1;
 
       # https://wiki.hyprland.org/Configuring/Variables/#variable-types
-      "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-      "col.inactive_border" = "rgba(595959aa)";
+      "col.active_border" = lib.mkDefault "rgba(33ccffee) rgba(00ff99ee) 45deg";
+      "col.inactive_border" = lib.mkDefault "rgba(595959aa)";
 
       # Set to true enable resizing windows by clicking and dragging on borders and gaps
       resize_on_border = true;
-
-      # https://wiki.hyprland.org/Configuring/Tearing/
+# https://wiki.hyprland.org/Configuring/Tearing/
       allow_tearing = false;
 
       layout = "dwindle";
@@ -87,7 +88,7 @@
       drop_shadow = true;
       shadow_range = 4;
       shadow_render_power = 3;
-      "col.shadow" = "rgba(1a1a1aee)";
+      "col.shadow" = lib.mkDefault "rgba(1a1a1aee)";
 
       # https://wiki.hyprland.org/Configuring/Variables/#blur
       blur = {
