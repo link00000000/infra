@@ -17,13 +17,18 @@
     ../../system/modules/systemd-boot.nix
     ../../system/modules/tailscale.nix
     ../../system/modules/utils.nix
+    ../../system/modules/wireshark.nix
 
     ../../users/logan
+
+    ../../themes/tokyonight.nix
 
     #../../system/modules/hyprland.nix # TODO: Import this per user
 
     ./hardware-configuration.nix
   ];
+
+  stylix.enable = true;
 
   # TODO: Setup automatic garbage collection
   # TODO: Setup XDG portal

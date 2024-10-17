@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ ... }:
 
 let
   home-directory = "/home/logan";
-
 in
 {
   imports = [
@@ -25,25 +24,17 @@ in
 
   # TODO: Setup clipboard history
 
+  stylix = {
+    enable = true;
+    targets.vim.enable = false;
+  };
+
   home = {
     homeDirectory = "${home-directory}";
 
     # Do not change
     stateVersion = "24.05";
   };
-
-#  systemd.user.services."clone-dotfiles" = {
-#    description = "Clone dotfiles repo to ~/.dotfiles";
-#    wantedBy = [ "multi-user.target" ];
-#    script = ''
-#      if [ ! -d ${home-directory}/.dotfiles ]; then
-#        ${pkgs.git}/bin/git git clone git@github.com:link00000000/dotfiles ${home-directory}/.dotfiles
-#      fi
-#    '';
-#    serviceConfig = {
-#      Type = "oneshot";
-#    };
-#  };
 
   programs.home-manager.enable = true;
 }

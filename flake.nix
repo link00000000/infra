@@ -22,8 +22,8 @@
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
-    #stylix.url = "github:danth/stylix/release-24.05";
-    #stylix.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.url = "github:danth/stylix/release-24.05";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
 
@@ -41,7 +41,7 @@
 
         modules = [
           ./hosts/yoga/configuration.nix 
-          #inputs.stylix.nixosModules.stylix
+          inputs.stylix.nixosModules.stylix
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
