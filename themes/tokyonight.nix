@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, config, lib, inputs, ... }:
 
 let
   tokyonight = {
@@ -32,9 +32,8 @@ in
     cursor = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
-      size = 24;
+      size = 18;
     };
-
     fonts = {
       monospace = {
         package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
@@ -53,10 +52,10 @@ in
         name = "Noto Color Emoji";
       };
       sizes = {
-        applications = 13;
-        desktop = 13;
+        applications = 10;
+        desktop = 10;
         popups = 10;
-        terminal = 13;
+        terminal = 10;
       };
     };
   };
