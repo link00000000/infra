@@ -8,8 +8,7 @@ in
     ./programs/firefox.nix
     ./programs/fzf.nix 
     ./programs/git.nix
-    ./programs/hyprland
-    ./programs/hyprpaper.nix
+    ./programs/hyprland.nix
     ./programs/kitty.nix
     ./programs/neovim.nix
     ./programs/nix-search-cli.nix
@@ -27,6 +26,7 @@ in
   stylix = {
     enable = true;
     targets.vim.enable = false;
+    targets.nixvim.enable = false;
   };
 
   home = {

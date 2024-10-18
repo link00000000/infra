@@ -366,6 +366,22 @@
         "type": "github"
       }
     },
+    "nixy-wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729003896,
+        "narHash": "sha256-NWpQF1xBzUF6ji1ZfUQqcKmVe/ORz2RdUc2zJOLec4U=",
+        "owner": "anotherhadi",
+        "repo": "nixy-wallpapers",
+        "rev": "5a6b9c8ce880fc41d793c178d5935ff3b47a7919",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anotherhadi",
+        "repo": "nixy-wallpapers",
+        "type": "github"
+      }
+    },
     "ny": {
       "flake": false,
       "locked": {
@@ -385,6 +401,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "nixy-wallpapers": "nixy-wallpapers",
         "stylix": "stylix"
       }
     },

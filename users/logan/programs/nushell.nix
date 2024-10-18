@@ -66,4 +66,9 @@
     enableNushellIntegration = true;
     flags = [ "--disable-up-arrow" ];
   };
+
+  programs.starship = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
 }

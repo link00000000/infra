@@ -26,10 +26,7 @@ in
     base16Scheme = tokyonight;
 
     polarity = "dark";
-    image = pkgs.fetchurl {
-      url = "https://www.pixelstalk.net/wp-content/uploads/2016/05/Epic-Anime-Awesome-Wallpapers.jpg";
-      sha256 = "enQo3wqhgf0FEPHj2coOCvo7DuZv+x5rL/WIo4qPI50=";
-    }; # Required. Might not be required in the future according to https://github.com/danth/stylix/issues/200
+    image = inputs.nixy-wallpapers + "/wallpapers/astronaut.png"; # Required. Might not be required in the future according to https://github.com/danth/stylix/issues/200
 
     cursor = {
       package = pkgs.bibata-cursors;

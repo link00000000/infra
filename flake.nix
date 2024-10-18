@@ -27,6 +27,9 @@
 
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
 
+    nixy-wallpapers.url = "github:anotherhadi/nixy-wallpapers";
+    nixy-wallpapers.flake = false;
+
     # TODO: Setup impemanence
     # TODO: Setup Mic92/nix-fast-build
   };
