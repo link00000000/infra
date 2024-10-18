@@ -12,8 +12,7 @@ in
     ./programs/kitty.nix
     ./programs/neovim.nix
     ./programs/nix-search-cli.nix
-    ./programs/nushell.nix
-    ./programs/parsec.nix
+    ./programs/nushell.nix ./programs/parsec.nix
     ./programs/ripgrep.nix
     ./programs/rofi-wayland.nix
     ./programs/tealdeer.nix
@@ -25,8 +24,11 @@ in
 
   stylix = {
     enable = true;
-    targets.vim.enable = false;
+    autoEnable = true;
+
+    targets.kde.enable = false; # if enabled, causes issues with neovim
     targets.nixvim.enable = false;
+    targets.vim.enable = false;
   };
 
   home = {

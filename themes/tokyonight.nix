@@ -23,6 +23,7 @@ in
 {
   stylix = {
     enable = true;
+    autoEnable = true;
     base16Scheme = tokyonight;
 
     polarity = "dark";

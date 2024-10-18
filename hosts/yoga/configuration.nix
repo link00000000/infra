@@ -28,8 +28,6 @@
     ./hardware-configuration.nix
   ];
 
-  stylix.enable = true;
-
   # TODO: Setup automatic garbage collection
   # TODO: Setup XDG portal
 
