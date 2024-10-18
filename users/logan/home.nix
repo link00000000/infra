@@ -12,7 +12,8 @@ in
     ./programs/kitty.nix
     ./programs/neovim.nix
     ./programs/nix-search-cli.nix
-    ./programs/nushell.nix ./programs/parsec.nix
+    ./programs/nushell.nix
+    ./programs/parsec.nix
     ./programs/ripgrep.nix
     ./programs/rofi-wayland.nix
     ./programs/tealdeer.nix
