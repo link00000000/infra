@@ -17,6 +17,7 @@
       "$terminal" = "${pkgs.kitty}/bin/kitty";
       "$fileManager" = "dolphin"; # TODO: Setup a file manager
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
+      "$internetBrowser" = "${pkgs.librewolf}/bin/librewolf";
 
       # See https://wiki.hyprland.org/Configuring/Keywords/
       "$mainMod" = "SUPER";
@@ -67,7 +68,7 @@
 
         # Set to true enable resizing windows by clicking and dragging on borders and gaps
         resize_on_border = true;
-  # https://wiki.hyprland.org/Configuring/Tearing/
+        # https://wiki.hyprland.org/Configuring/Tearing/
         allow_tearing = false;
 
         layout = "dwindle";
@@ -161,6 +162,7 @@
         "$mainMod, E, exec, $fileManager"
         "$mainMod, F, togglefloating,"
         "$mainMod, SPACE, exec, $menu"
+        "$mainMod, I, exec, $internetBrowser"
 
         "$mainMod, h, movefocus, l"
         "$mainMod, l, movefocus, r"
