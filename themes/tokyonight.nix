@@ -34,6 +34,7 @@ in
       name = "Bibata-Modern-Ice";
       size = 18;
     };
+
     fonts = {
       monospace = {
         package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
@@ -58,5 +59,7 @@ in
         terminal = 10;
       };
     };
+
+    opacity.terminal = 0.95;
   };
 }
