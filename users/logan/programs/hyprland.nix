@@ -22,7 +22,7 @@
       "$mainMod" = "SUPER";
 
       # See https://wiki.hyprland.org/Configuring/Monitors/
-      monitor = [ ",preferred,auto,auto" ];
+      monitor = [ ",preferred,auto,1.2" ];
       xwayland = { force_zero_scaling = true; };
 
       exec-once = [ "${pkgs.hyprpaper}/bin/hyprpaper" ];
