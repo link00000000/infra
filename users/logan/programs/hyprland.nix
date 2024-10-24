@@ -23,7 +23,10 @@
       "$mainMod" = "SUPER";
 
       # See https://wiki.hyprland.org/Configuring/Monitors/
-      monitor = [ ",preferred,auto,1.2" ];
+      monitor = [ 
+        "eDP-1,preferred,auto,1.20"
+        "DP-1,preferred,auto-up,1.25"
+      ];
       xwayland = { force_zero_scaling = true; };
 
       exec-once = [ "${pkgs.hyprpaper}/bin/hyprpaper" ];
