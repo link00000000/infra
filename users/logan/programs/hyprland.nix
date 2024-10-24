@@ -226,7 +226,7 @@
     enable = true;
     settings = {
       preload = [ "${config.stylix.image}" ];
-      wallpaper = [ "eDP-1,${config.stylix.image}" ];
+      wallpaper = [ ",${config.stylix.image}" ];
       ipc = "on";
       splash = false;
       splash_offset = 2.0;
