@@ -32,6 +32,8 @@
   # TODO: Setup automatic garbage collection
   # TODO: Setup XDG portal
 
+  virtualisation.virtualbox.host.enable = true; 
+
   # Networking
   networking.hostName = "yoga";
   networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
