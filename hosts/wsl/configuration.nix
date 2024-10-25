@@ -2,11 +2,11 @@
 
 {
   imports = [
-    ../../system/modules/locale.nix
-    ../../system/modules/nix.nix
-    ../../system/modules/nixos.nix
-    ../../system/modules/sudo.nix
-    ../../system/modules/utils.nix
+    ../../system/locale.nix
+    ../../system/nix.nix
+    ../../system/nixos.nix
+    ../../system/sudo.nix
+    ../../system/utils.nix
 
     ../../users/logan
   ];

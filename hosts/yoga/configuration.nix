@@ -2,30 +2,30 @@
 
 {
   imports = [
-    ../../system/modules/bluetooth.nix
-    ../../system/modules/docker.nix
-    ../../system/modules/hyprland.nix
-    ../../system/modules/locale.nix
-    ../../system/modules/network-manager.nix
-    ../../system/modules/nix.nix
-    ../../system/modules/nixos.nix
-    ../../system/modules/openssh.nix
-    ../../system/modules/polkit.nix
-    ../../system/modules/power-management.nix
-    ../../system/modules/sddm.nix
-    ../../system/modules/sound.nix
-    ../../system/modules/sudo.nix
-    ../../system/modules/systemd-boot.nix
-    ../../system/modules/tailscale.nix
-    ../../system/modules/utils.nix
-    ../../system/modules/virtualbox.nix
-    ../../system/modules/wireshark.nix
+    ../../system/bluetooth.nix
+    ../../system/docker.nix
+    ../../system/hyprland.nix
+    ../../system/locale.nix
+    ../../system/network-manager.nix
+    ../../system/nix.nix
+    ../../system/nixos.nix
+    ../../system/openssh.nix
+    ../../system/polkit.nix
+    ../../system/power-management.nix
+    ../../system/sddm.nix
+    ../../system/sound.nix
+    ../../system/sudo.nix
+    ../../system/systemd-boot.nix
+    ../../system/tailscale.nix
+    ../../system/utils.nix
+    ../../system/virtualbox.nix
+    ../../system/wireshark.nix
 
     ../../users/logan
 
     ../../themes/tokyonight.nix
 
-    #../../system/modules/hyprland.nix # TODO: Import this per user
+    #../../system/hyprland.nix # TODO: Import this per user
 
     ./hardware-configuration.nix
   ];
