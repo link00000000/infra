@@ -25,7 +25,7 @@
       # See https://wiki.hyprland.org/Configuring/Monitors/
       monitor = [ 
         "eDP-1,preferred,auto,1.20"
-        "DP-1,preferred,auto-up,1.25"
+        ",preferred,auto,1" # All additional monitors plugged in should be placed to the right with auto settings
       ];
       xwayland = { force_zero_scaling = true; };
 
