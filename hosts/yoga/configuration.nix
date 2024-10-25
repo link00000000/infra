@@ -18,6 +18,7 @@
     ../../system/modules/systemd-boot.nix
     ../../system/modules/tailscale.nix
     ../../system/modules/utils.nix
+    ../../system/modules/virtualbox.nix
     ../../system/modules/wireshark.nix
 
     ../../users/logan
@@ -31,8 +32,6 @@
 
   # TODO: Setup automatic garbage collection
   # TODO: Setup XDG portal
-
-  virtualisation.virtualbox.host.enable = true; 
 
   # Networking
   networking.hostName = "yoga";
