@@ -9,7 +9,7 @@ in
     home = "/home/logan";
     initialPassword = "password";
     isNormalUser = true;
-    extraGroups = [ "wheel" "admin" "wireshark" ];
+    extraGroups = [ "wheel" "admin" "wireshark" "docker" ];
     shell = pkgs.nushell;
   };
 

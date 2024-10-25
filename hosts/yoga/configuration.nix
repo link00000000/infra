@@ -3,6 +3,7 @@
 {
   imports = [
     ../../system/modules/bluetooth.nix
+    ../../system/modules/docker.nix
     ../../system/modules/hyprland.nix
     ../../system/modules/locale.nix
     ../../system/modules/network-manager.nix
