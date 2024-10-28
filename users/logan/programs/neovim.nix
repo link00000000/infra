@@ -8,7 +8,7 @@
     defaultEditor = true;
     extraPackages = with pkgs; [
       # Language servers
-      nil
+      nixd
       clang-tools
       gopls
     ];
