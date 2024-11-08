@@ -1,7 +1,6 @@
 { pkgs, lib, config, ... }:
 
-{
-  wayland.windowManager.hyprland = {
+{ wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
@@ -15,7 +14,6 @@
     
       # Refer to https://wiki.hyprland.org/Configuring/Variables/
       "$terminal" = "${pkgs.kitty}/bin/kitty";
-      "$fileManager" = "dolphin"; # TODO: Setup a file manager
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$internetBrowser" = "${pkgs.librewolf}/bin/librewolf";
 
@@ -29,7 +27,10 @@
       ];
       xwayland = { force_zero_scaling = true; };
 
-      exec-once = [ "${pkgs.hyprpaper}/bin/hyprpaper" ];
+      exec-once = [
+        "${pkgs.hyprpaper}/bin/hyprpaper"
+        "[workspace special:taskmanager silent; fullscreen] ${pkgs.kitty}/bin/kitty ${pkgs.btop}/bin/btop"
+      ];
 
       # See https://wiki.hyprland.org/Configuring/Environment-variables/
       env = [
@@ -162,7 +163,6 @@
       bind = [
         "$mainMod, T, exec, $terminal"
         "$mainMod, X, killactive,"
-        "$mainMod, E, exec, $fileManager"
         "$mainMod, F, togglefloating,"
         "$mainMod, SPACE, exec, $menu"
         "$mainMod, I, exec, $internetBrowser"
@@ -197,8 +197,10 @@
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
-        "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        "$mainMod, S, togglespecialworkspace, transient"
+        "$mainMod SHIFT, S, movetoworkspace, special:transient"
+
+        "$mainMod, ESCAPE, togglespecialworkspace, taskmanager"
 
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"

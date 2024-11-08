@@ -5,11 +5,14 @@ let
 in
 {
   imports = [
+    ./programs/btop.nix
+    ./programs/clang.nix
     ./programs/firefox.nix
     ./programs/fzf.nix 
     ./programs/git.nix
     ./programs/hyprland.nix
     ./programs/kitty.nix
+    ./programs/make.nix
     ./programs/neovim.nix
     ./programs/nix-search-cli.nix
     ./programs/nushell.nix
@@ -17,8 +20,6 @@ in
     ./programs/ripgrep.nix
     ./programs/rofi-wayland.nix
     ./programs/tealdeer.nix
-    ./programs/clang.nix
-    ./programs/make.nix
   ];
 
   # TODO: Setup clipboard history
