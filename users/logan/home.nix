@@ -20,6 +20,8 @@ in
     ./programs/ripgrep.nix
     ./programs/rofi-wayland.nix
     ./programs/tealdeer.nix
+
+    ./nixos-pkgs.nix
   ];
 
   # TODO: Setup clipboard history
