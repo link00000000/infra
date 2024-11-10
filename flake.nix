@@ -36,41 +36,61 @@
 
   outputs = { self, ... }@inputs: {
     nixosConfigurations = {
-      yoga = let system = "x86_64-linux"; in inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
+      yoga =
+        let
+          system = "x86_64-linux";
+          pkgs-unstable = inputs.nixpkgs-unstable.outputs.legacyPackages.${system};
+        in
+          inputs.nixpkgs.lib.nixosSystem {
+            inherit system;
 
-        specialArgs.inputs = inputs;
-        specialArgs.pkgs-unstable = inputs.nixpkgs-unstable.outputs.legacyPackages.${system};
+            specialArgs = {
+              inherit inputs;
+              inherit pkgs-unstable;
+            };
 
-        modules = [
-          ./hosts/yoga/configuration.nix 
-          inputs.stylix.nixosModules.stylix
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-          }
-        ];
-      };
+            modules = [
+              ./hosts/yoga/configuration.nix 
+              inputs.stylix.nixosModules.stylix
+              inputs.home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {
+                  inherit inputs;
+                  inherit pkgs-unstable;
+                };
+              }
+            ];
+          };
 
-      wsl = let system = "x86_64-linux"; in inputs.nixpkgs.lib.nixosSystem {
-        inherit system;
+      wsl =
+        let
+          system = "x86_64-linux";
+          pkgs-unstable = inputs.nixpkgs-unstable.outputs.legacyPackages.${system};
+        in 
+          inputs.nixpkgs.lib.nixosSystem {
+            inherit system;
 
-        specialArgs.inputs = inputs;
-        specialArgs.pkgs-unstable = inputs.nixpkgs-unstable.outputs.legacyPackages.${system};
+            specialArgs = {
+              inherit inputs;
+              inherit pkgs-unstable;
+            };
 
-        modules = [
-          ./hosts/wsl/configuration.nix
-          inputs.nixos-wsl.nixosModules.default
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-          }
-        ];
-      };
+            modules = [
+              ./hosts/wsl/configuration.nix
+              inputs.nixos-wsl.nixosModules.default
+              inputs.home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {
+                  inherit inputs;
+                  inherit pkgs-unstable;
+                };
+              }
+            ];
+          };
     };
   };
 }
