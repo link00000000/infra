@@ -18,6 +18,7 @@ in
     ./programs/nix-search-cli.nix
     ./programs/nushell.nix
     ./programs/parsec.nix
+    ./programs/ranger.nix
     ./programs/ripgrep.nix
     ./programs/rofi-wayland.nix
     ./programs/tealdeer.nix
