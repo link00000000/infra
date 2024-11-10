@@ -11,6 +11,7 @@ in
     ./programs/fzf.nix 
     ./programs/git.nix
     ./programs/hyprland.nix
+    ./programs/imhex.nix
     ./programs/kitty.nix
     ./programs/make.nix
     ./programs/neovim.nix
