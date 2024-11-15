@@ -53,10 +53,6 @@
           ^sudo ...$rest
         }
       }
-
-      def --wrapped ls [...rest] {
-        ls ...$rest | group-by type
-      }
     '';
   };
 
