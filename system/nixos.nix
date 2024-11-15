@@ -17,4 +17,11 @@
       User = "root";
     };
   };
+
+  # Required for xdg.portal.enable in home manager
+  # https://github.com/nix-community/home-manager/blob/2f23fa308a7c067e52dfcc30a0758f47043ec176/modules/misc/xdg-portal.nix#L22
+  environment.pathsToLink = [
+    "/share/xdg-desktop-portal"
+    "/share/applications"
+  ];
 }

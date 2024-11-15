@@ -5,7 +5,7 @@ with lib;
 {
   environment.systemPackages = with pkgs; [
     mako # TODO: Move to user config?
-    #xdg-desktop-portal # TODO: Remove? Already included by programs.hyprland.enable?
+    xdg-desktop-portal
     kdePackages.polkit-kde-agent-1
     kdePackages.qtwayland
     wl-clipboard

@@ -1,10 +1,10 @@
 { pkgs, lib, config, ... }:
 
-{ wayland.windowManager.hyprland = {
+{
+  wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
-
     plugins = with pkgs.hyprlandPlugins; [
       hyprexpo
     ];
@@ -16,6 +16,7 @@
       "$terminal" = "${pkgs.kitty}/bin/kitty";
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$internetBrowser" = "${pkgs.librewolf}/bin/librewolf";
+      "$fileBrowser" = "${pkgs.gnome.nautilus}/bin/nautilus";
 
       # See https://wiki.hyprland.org/Configuring/Keywords/
       "$mainMod" = "SUPER";
@@ -166,6 +167,7 @@
         "$mainMod, F, togglefloating,"
         "$mainMod, SPACE, exec, $menu"
         "$mainMod, I, exec, $internetBrowser"
+        "$mainMod, E, exec, $fileBrowser"
 
         "$mainMod, h, movefocus, l"
         "$mainMod, l, movefocus, r"

@@ -14,14 +14,15 @@ in
     ./programs/imhex.nix
     ./programs/kitty.nix
     ./programs/make.nix
+    ./programs/nautilus.nix
     ./programs/neovim.nix
     ./programs/nix-search-cli.nix
     ./programs/nushell.nix
     ./programs/parsec.nix
-    ./programs/ranger.nix
     ./programs/ripgrep.nix
     ./programs/rofi-wayland.nix
     ./programs/tealdeer.nix
+    ./programs/xdg.nix
   ];
 
   # TODO: Setup clipboard history
