@@ -15,6 +15,10 @@
 
   programs.wireshark.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    gh
+  ];
+
   # WSL
   wsl.enable = true;
   wsl.defaultUser = "logan";
