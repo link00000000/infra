@@ -23,6 +23,7 @@ in
     ./programs/ripgrep.nix
     ./programs/rofi-wayland.nix
     ./programs/tealdeer.nix
+    ./programs/trayscale.nix
     ./programs/xdg.nix
   ];
 
