@@ -71,4 +71,11 @@
     enable = true;
     enableNushellIntegration = true;
   };
+
+  programs.keychain = {
+    enable = true;
+    enableNushellIntegration = true;
+    keys = [ "id_rsa" "id_ed25519" ];
+    extraFlags = [ "--quick" "--ignore-missing" ];
+  };
 }
