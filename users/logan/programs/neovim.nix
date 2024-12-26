@@ -14,6 +14,7 @@
       gopls
       vscode-langservers-extracted
       nodePackages.typescript-language-server
+      lua-language-server
     ];
   };
 }
