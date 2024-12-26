@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -24,6 +24,7 @@
   # WSL
   wsl.enable = true;
   wsl.defaultUser = "logan";
+  wsl.docker.enable = true;
 
   # Networking
   networking.hostName = "wsl";
