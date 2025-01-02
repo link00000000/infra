@@ -8,6 +8,8 @@
     ../../system/sudo.nix
     ../../system/utils.nix
 
+    ../../themes/tokyonight.nix
+
     ../../users/logan
   ];
 
