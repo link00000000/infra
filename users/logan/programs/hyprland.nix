@@ -13,7 +13,7 @@
       "debug:disable_logs" = true;
     
       # Refer to https://wiki.hyprland.org/Configuring/Variables/
-      "$terminal" = "${pkgs.kitty}/bin/kitty";
+      "$terminal" = "${pkgs.wezterm}/bin/wezterm";
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$internetBrowser" = "${pkgs.librewolf}/bin/librewolf";
       "$fileBrowser" = "${pkgs.gnome.nautilus}/bin/nautilus";

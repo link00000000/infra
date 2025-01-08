@@ -25,6 +25,7 @@ in
     ./programs/rofi-wayland.nix
     ./programs/tealdeer.nix
     ./programs/trayscale.nix
+    ./programs/wezterm.nix
     ./programs/xdg.nix
   ];
 
