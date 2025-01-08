@@ -20,6 +20,7 @@ in
     ./programs/nushell.nix
     ./programs/parsec.nix
     ./programs/pavucontrol.nix
+    ./programs/rbw.nix
     ./programs/ripgrep.nix
     ./programs/rofi-wayland.nix
     ./programs/tealdeer.nix
