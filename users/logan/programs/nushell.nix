@@ -53,6 +53,22 @@
           ^sudo ...$rest
         }
       }
+
+      def --wrapped git [...rest] {
+        if ($rest | is-empty) {
+          ${config.programs.lazygit.package}/bin/lazygit
+        } else if (($rest | length) == 1 and ($rest | first) == "status") {
+          ${config.programs.lazygit.package}/bin/lazygit status
+        } else if (($rest | length) == 1 and ($rest | first) == "branch") {
+          ${config.programs.lazygit.package}/bin/lazygit branch
+        } else if (($rest | length) == 1 and ($rest | first) == "log") {
+          ${config.programs.lazygit.package}/bin/lazygit log
+        } else if (($rest | length) == 1 and ($rest | first) == "stash") {
+          ${config.programs.lazygit.package}/bin/lazygit stash
+        } else {
+          ^git ...$rest
+        }
+      }
     '';
   };
 
