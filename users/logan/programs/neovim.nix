@@ -1,10 +1,10 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # TODO: Setup dotfiles
   programs.neovim = {
     enable = true;
-    package = pkgs-unstable.neovim-unwrapped;
+    package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
     vimAlias = true;
     defaultEditor = true;
     extraPackages = with pkgs; [
