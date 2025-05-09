@@ -18,6 +18,7 @@ in
     ./programs/neovim.nix
     ./programs/nix-search-cli.nix
     ./programs/nushell.nix
+    ./programs/obsidian.nix
     ./programs/parsec.nix
     ./programs/pavucontrol.nix
     ./programs/rbw.nix
