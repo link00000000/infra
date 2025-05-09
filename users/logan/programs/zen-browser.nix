@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
-    firefox
+    inputs.zen-browser.packages."${system}".default
   ];
 
   home.sessionVariables = {

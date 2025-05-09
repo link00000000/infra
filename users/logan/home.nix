@@ -27,6 +27,7 @@ in
     ./programs/trayscale.nix
     ./programs/wezterm.nix
     ./programs/xdg.nix
+    #./programs/zen-browser.nix
   ];
 
   # TODO: Setup clipboard history

@@ -40,14 +40,20 @@
   # Graphics drivers
   hardware.opengl = {
     enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
     extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965
-      libvdpau-va-gl
+      intel-media-driver      # LIBVA_DRIVER_NAME=iHD
+      intel-vaapi-driver      # LIBVA_DRIVER_NAME=i965
+      libvdpau-va-gl          # VDPAU→VA-API bridge
+      vulkan-loader           # for WebRender/Vulkan support
+      #intel-vulkan-driver     # Intel Vulkan ICD
     ];
   };
 
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
+  environment.sessionVariables = { 
+    LIBVA_DRIVER_NAME = "iHD";
+  };
 
   # Do not change
   system.stateVersion = "20.03";

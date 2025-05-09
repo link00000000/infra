@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ inputs, pkgs, lib, config, ... }:
 
 {
   wayland.windowManager.hyprland = {
@@ -15,7 +15,7 @@
       # Refer to https://wiki.hyprland.org/Configuring/Variables/
       "$terminal" = "${pkgs.wezterm}/bin/wezterm";
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
-      "$internetBrowser" = "${pkgs.librewolf}/bin/librewolf";
+      "$internetBrowser" = "${pkgs.firefox}/bin/firefox";
       "$fileBrowser" = "${pkgs.gnome.nautilus}/bin/nautilus";
 
       # See https://wiki.hyprland.org/Configuring/Keywords/
@@ -139,7 +139,7 @@
         kb_layout = "us";
         kb_variant = "";
         kb_model = "";
-        kb_options = "";
+        kb_options = "caps:escape";
         kb_rules = "";
 
         repeat_rate = 25;
@@ -162,6 +162,8 @@
 
       # https://wiki.hyprland.org/Configuring/Binds/
       bind = [
+        "ALT, CAPSLOCK, sendshortcut, CAPSLOCK"
+
         "$mainMod, T, exec, $terminal"
         "$mainMod, X, killactive,"
         "$mainMod, F, togglefloating,"
@@ -208,6 +210,7 @@
         "$mainMod, mouse_up, workspace, e-1"
 
         "$mainMod, TAB, hyprexpo:expo, toggle"
+        "$mainMod, M, fullscreen"
       ];
 
       bindm = [

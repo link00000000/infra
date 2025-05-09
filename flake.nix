@@ -32,6 +32,8 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
     # TODO: Setup impemanence
     # TODO: Setup Mic92/nix-fast-build
   };
