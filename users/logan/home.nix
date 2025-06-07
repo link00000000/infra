@@ -21,6 +21,7 @@ in
     ./programs/obsidian.nix
     ./programs/parsec.nix
     ./programs/pavucontrol.nix
+    ./programs/qdirstat.nix
     ./programs/rbw.nix
     ./programs/ripgrep.nix
     ./programs/rofi-wayland.nix
