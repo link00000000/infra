@@ -5,12 +5,14 @@ let
 in
 {
   imports = [
+    #./programs/zen-browser.nix
     ./programs/btop.nix
     ./programs/clang.nix
     ./programs/firefox.nix
     ./programs/fzf.nix 
     ./programs/git.nix
     ./programs/hyprland.nix
+    ./programs/hyprshot.nix
     ./programs/imhex.nix
     ./programs/kitty.nix
     ./programs/make.nix
@@ -21,15 +23,17 @@ in
     ./programs/obsidian.nix
     ./programs/parsec.nix
     ./programs/pavucontrol.nix
+    ./programs/prismlauncher.nix
     ./programs/qdirstat.nix
     ./programs/rbw.nix
     ./programs/ripgrep.nix
     ./programs/rofi-wayland.nix
+    ./programs/syncthing.nix
     ./programs/tealdeer.nix
     ./programs/trayscale.nix
+    ./programs/waybar.nix
     ./programs/wezterm.nix
     ./programs/xdg.nix
-    #./programs/zen-browser.nix
   ];
 
   # TODO: Setup clipboard history
@@ -41,10 +45,16 @@ in
     targets.kde.enable = false; # if enabled, causes issues with neovim
     targets.nixvim.enable = false;
     targets.vim.enable = false;
+    targets.nushell.enable = false;
   };
 
   home = {
     homeDirectory = "${home-directory}";
+
+    sessionVariables = {
+      PAGER = "nvim +Man!";
+      MANPAGER = "nvim +Man!";
+    };
 
     # Do not change
     stateVersion = "24.05";

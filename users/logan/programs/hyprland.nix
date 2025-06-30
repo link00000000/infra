@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   wayland.windowManager.hyprland = {
@@ -17,6 +17,7 @@
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$internetBrowser" = "${pkgs.firefox}/bin/firefox";
       "$fileBrowser" = "${pkgs.gnome.nautilus}/bin/nautilus";
+      "$screenshot" = "${pkgs.hyprshot}/bin/hyprshot --mode region --silent";
 
       # See https://wiki.hyprland.org/Configuring/Keywords/
       "$mainMod" = "SUPER";
@@ -152,7 +153,11 @@
         touchpad = {
           natural_scroll = true;
           clickfinger_behavior = true;
+          disable_while_typing = false;
         };
+
+        accel_profile = "flat";
+        force_no_accel = 1;
       };
 
       # https://wiki.hyprland.org/Configuring/Variables/#gestures
@@ -170,6 +175,7 @@
         "$mainMod, SPACE, exec, $menu"
         "$mainMod, I, exec, $internetBrowser"
         "$mainMod, E, exec, $fileBrowser"
+        "$mainMod SHIFT, S, exec, $screenshot"
 
         "$mainMod, h, movefocus, l"
         "$mainMod, l, movefocus, r"
@@ -201,8 +207,8 @@
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
-        "$mainMod, S, togglespecialworkspace, transient"
-        "$mainMod SHIFT, S, movetoworkspace, special:transient"
+        #"$mainMod, S, togglespecialworkspace, transient"
+        #"$mainMod SHIFT, S, movetoworkspace, special:transient"
 
         "$mainMod, ESCAPE, togglespecialworkspace, taskmanager"
 
