@@ -34,6 +34,7 @@ in
     ./programs/waybar.nix
     ./programs/wezterm.nix
     ./programs/xdg.nix
+    ../../modules/home-manager/ignis.nix
   ];
 
   # TODO: Setup clipboard history
@@ -61,4 +62,5 @@ in
   };
 
   programs.home-manager.enable = true;
+  programs.ignis.enable = true;
 }

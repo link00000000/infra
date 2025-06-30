@@ -20,6 +20,9 @@
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    ignis.url = "github:ignis-sh/ignis/v0.5.1";
+    ignis.inputs.nixpkgs.follows = "nixpkgs";
+
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     stylix.url = "github:danth/stylix/release-24.05";

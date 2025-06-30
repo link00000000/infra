@@ -406,6 +406,27 @@
         "type": "github"
       }
     },
+    "ignis": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748439200,
+        "narHash": "sha256-/E0xqzW1qFOg3GJup/htQf6g1gz7NiHg7mOluYsArtw=",
+        "owner": "ignis-sh",
+        "repo": "ignis",
+        "rev": "50bea7b144329b3ef07ad336cfff1880a4e2855a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ignis-sh",
+        "ref": "v0.5.1",
+        "repo": "ignis",
+        "type": "github"
+      }
+    },
     "neovim-nightly-overlay": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -594,6 +615,7 @@
       "inputs": {
         "apple-fonts": "apple-fonts",
         "home-manager": "home-manager",
+        "ignis": "ignis",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_4",
