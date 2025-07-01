@@ -6,7 +6,6 @@
     xwayland.enable = true;
     systemd.enable = true;
     plugins = with pkgs.hyprlandPlugins; [
-      # TODO: Fix error with expo: Faile dto load the following plugins: /nix/store/.../lib/libhyprexpo.so
       hyprexpo
     ];
 
@@ -17,7 +16,7 @@
       "$terminal" = "${pkgs.kitty}/bin/kitty";
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$internetBrowser" = "${pkgs.firefox}/bin/firefox";
-      "$fileBrowser" = "${pkgs.gnome.nautilus}/bin/nautilus";
+      "$fileBrowser" = "${pkgs.nautilus}/bin/nautilus";
       "$screenshot" = "${pkgs.hyprshot}/bin/hyprshot --mode region --silent";
 
       # See https://wiki.hyprland.org/Configuring/Keywords/

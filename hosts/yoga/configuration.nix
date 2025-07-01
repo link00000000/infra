@@ -37,9 +37,9 @@
   networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
 
   # Graphics drivers
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       intel-media-driver      # LIBVA_DRIVER_NAME=iHD
       intel-vaapi-driver      # LIBVA_DRIVER_NAME=i965

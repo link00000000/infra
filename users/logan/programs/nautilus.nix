@@ -2,6 +2,6 @@
 
 {
   home.packages = [
-    pkgs.gnome.nautilus
+    pkgs.nautilus
   ];
 }
