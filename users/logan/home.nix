@@ -44,6 +44,7 @@ in
 
     targets.kde.enable = false; # if enabled, causes issues with neovim
     targets.nixvim.enable = false;
+    targets.neovim.enable = false;
     targets.vim.enable = false;
     targets.nushell.enable = false;
   };

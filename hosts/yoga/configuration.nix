@@ -16,9 +16,8 @@
     ../../system/sound.nix
     ../../system/sudo.nix
     ../../system/systemd-boot.nix
-    ../../system/tailscale.nix
+    #../../system/tailscale.nix
     ../../system/utils.nix
-    ../../system/virtualbox.nix
     ../../system/wireshark.nix
 
     ../../users/logan
@@ -40,7 +39,6 @@
   # Graphics drivers
   hardware.opengl = {
     enable = true;
-    driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
       intel-media-driver      # LIBVA_DRIVER_NAME=iHD
