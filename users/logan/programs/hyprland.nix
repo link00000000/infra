@@ -13,10 +13,10 @@
       "debug:disable_logs" = true;
     
       # Refer to https://wiki.hyprland.org/Configuring/Variables/
-      "$terminal" = "${pkgs.wezterm}/bin/wezterm";
+      "$terminal" = "${pkgs.kitty}/bin/kitty";
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
       "$internetBrowser" = "${pkgs.firefox}/bin/firefox";
-      "$fileBrowser" = "${pkgs.gnome.nautilus}/bin/nautilus";
+      "$fileBrowser" = "${pkgs.nautilus}/bin/nautilus";
       "$screenshot" = "${pkgs.hyprshot}/bin/hyprshot --mode region --silent";
 
       # See https://wiki.hyprland.org/Configuring/Keywords/
@@ -88,11 +88,6 @@
         active_opacity = 1.0;
         inactive_opacity = 1.0;
 
-        drop_shadow = true;
-        shadow_range = 4;
-        shadow_render_power = 3;
-        "col.shadow" = lib.mkDefault "rgba(1a1a1aee)";
-
         # https://wiki.hyprland.org/Configuring/Variables/#blur
         blur = {
           enabled = true;
@@ -100,6 +95,14 @@
           passes = 1;
 
           vibrancy = 0.1696;
+        };
+
+        # https://wiki.hypr.land/Configuring/Variables/#shadow
+        shadow = {
+          enabled = true;
+          range = 4;
+          render_power = 3;
+          color = lib.mkForce "rgba(1a1a1aee)";
         };
       };
 
