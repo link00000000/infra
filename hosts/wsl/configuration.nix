@@ -31,13 +31,14 @@
   wsl.docker.enable = true;
 
   # Hardware acceleration
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-  hardware.opengl.extraPackages = with pkgs; [
-    mesa.drivers
-    libvdpau-va-gl
-    (libedit.overrideAttrs (attrs: {postInstall = (attrs.postInstall or "") + ''ln -s $out/lib/libedit.so $out/lib/libedit.so.2'';}))
-  ];
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      mesa.drivers
+      libvdpau-va-gl
+      (libedit.overrideAttrs (attrs: {postInstall = (attrs.postInstall or "") + ''ln -s $out/lib/libedit.so $out/lib/libedit.so.2'';}))
+    ];
+  };
 
   environment.sessionVariables = {
     CUDA_PATH = "${pkgs.cudatoolkit}";
