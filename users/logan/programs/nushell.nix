@@ -6,7 +6,7 @@
     enable = true;
 
     # HACK: Workaround until https://github.com/nix-community/home-manager/issues/4313 is merged
-    environmentVariables = builtins.mapAttrs (name: value: "\"${builtins.toString value}\"") config.home.sessionVariables;
+    environmentVariables = builtins.mapAttrs (name: value: "${builtins.toString value}") config.home.sessionVariables;
 
     extraConfig = /* nu */ ''
       def "config home" [] {
