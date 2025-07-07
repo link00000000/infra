@@ -24,7 +24,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           hexpand
           halign={Gtk.Align.CENTER}
         >
-          <label label="TESTING" />
+          <label label="TESTING THIS IS A TEST" />
         </button>
         <box $type="center" />
         <menubutton $type="end" hexpand halign={Gtk.Align.CENTER}>

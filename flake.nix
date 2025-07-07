@@ -34,6 +34,8 @@
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
+    desktop-shell.url = "./modules/home-manager/desktop-shell";
+
     # TODO: Setup impemanence
     # TODO: Setup Mic92/nix-fast-build
   };
