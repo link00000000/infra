@@ -30,6 +30,8 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
+    desktop-shell.url = "path:./modules/desktop-shell";
+
     zen-browser.url = "path:./modules/zen-browser";
 
     # TODO: Setup impemanence
