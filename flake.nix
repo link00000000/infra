@@ -3,14 +3,12 @@
 
   nixConfig = {
     # Enable build caches
-    extra-substituters = [
-      "https://nix-community.cachix.org"
+    extra-substituters = [ "https://nix-community.cachix.org"
       "https://hyprland.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-    ];
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 
   inputs = {
@@ -32,7 +30,7 @@
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.url = "path:./modules/zen-browser";
 
     desktop-shell.url = "./modules/home-manager/desktop-shell";
 
@@ -40,14 +38,16 @@
     # TODO: Setup Mic92/nix-fast-build
   };
 
-  outputs = { self, ... }@inputs: {
-    nixosConfigurations = {
-      yoga =
-        let
-          system = "x86_64-linux";
-          pkgs-unstable = inputs.nixpkgs-unstable.outputs.legacyPackages.${system};
-        in
-          inputs.nixpkgs.lib.nixosSystem {
+  outputs =
+    { self, nixpkgs, ... }@inputs:
+    {
+      nixosConfigurations = {
+        yoga =
+          let
+            system = "x86_64-linux";
+            pkgs-unstable = inputs.nixpkgs-unstable.outputs.legacyPackages.${system};
+          in
+          nixpkgs.lib.nixosSystem {
             inherit system;
 
             specialArgs = {
@@ -56,7 +56,8 @@
             };
 
             modules = [
-              ./hosts/yoga/configuration.nix 
+              ./hosts/yoga/configuration.nix
+              (inputs.zen-browser.nixosModules.zen-browser-overlay { inherit system; })
               inputs.stylix.nixosModules.stylix
               inputs.home-manager.nixosModules.home-manager
               {
@@ -70,11 +71,11 @@
             ];
           };
 
-      wsl =
-        let
-          system = "x86_64-linux";
-          pkgs-unstable = inputs.nixpkgs-unstable.outputs.legacyPackages.${system};
-        in 
+        wsl =
+          let
+            system = "x86_64-linux";
+            pkgs-unstable = inputs.nixpkgs-unstable.outputs.legacyPackages.${system};
+          in
           inputs.nixpkgs.lib.nixosSystem {
             inherit system;
 
@@ -98,6 +99,6 @@
               }
             ];
           };
+      };
     };
-  };
 }

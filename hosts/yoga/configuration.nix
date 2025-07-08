@@ -1,4 +1,9 @@
-{ pkgs, lib, inputs, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -41,34 +46,34 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      intel-media-driver      # LIBVA_DRIVER_NAME=iHD
-      intel-vaapi-driver      # LIBVA_DRIVER_NAME=i965
-      libvdpau-va-gl          # VDPAU→VA-API bridge
-      vulkan-loader           # for WebRender/Vulkan support
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      intel-vaapi-driver # LIBVA_DRIVER_NAME=i965
+      libvdpau-va-gl # VDPAU→VA-API bridge
+      vulkan-loader # for WebRender/Vulkan support
       #intel-vulkan-driver     # Intel Vulkan ICD
     ];
   };
 
-  environment.sessionVariables = { 
+  environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "iHD";
   };
 
-/*
-  systemd.user.services.desktop-shell = {
-    unitConfig = {
-      Description = "A custom desktop shell made with AGS";
-      PartOf = ["graphical-session.target"];
-      After = ["graphical-session-pre.target"];
-    };
+  /*
+    systemd.user.services.desktop-shell = {
+      unitConfig = {
+        Description = "A custom desktop shell made with AGS";
+        PartOf = ["graphical-session.target"];
+        After = ["graphical-session-pre.target"];
+      };
 
-    serviceConfig = {
-      ExecStart = "${inputs.desktop-shell.packages.${pkgs.system}.desktop-shell}/bin/my-shell";
-      Restart = "on-failure";
-      KillMode = "mixed";
-    };
+      serviceConfig = {
+        ExecStart = "${inputs.desktop-shell.packages.${pkgs.system}.desktop-shell}/bin/my-shell";
+        Restart = "on-failure";
+        KillMode = "mixed";
+      };
 
-    wantedBy = ["graphical-session.target"];
-  };
+      wantedBy = ["graphical-session.target"];
+    };
   */
 
   environment.systemPackages = [
@@ -78,4 +83,3 @@
   # Do not change
   system.stateVersion = "20.03";
 }
-

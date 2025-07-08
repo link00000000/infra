@@ -15,7 +15,7 @@
       # Refer to https://wiki.hyprland.org/Configuring/Variables/
       "$terminal" = "${pkgs.kitty}/bin/kitty";
       "$menu" = "${pkgs.rofi-wayland}/bin/rofi -show drun";
-      "$internetBrowser" = "${pkgs.firefox}/bin/firefox";
+      "$internetBrowser" = "${pkgs.zen}/bin/zen";
       "$fileBrowser" = "${pkgs.nautilus}/bin/nautilus";
       "$screenshot" = "${pkgs.hyprshot}/bin/hyprshot --mode region --silent";
 

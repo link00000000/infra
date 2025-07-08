@@ -7,10 +7,9 @@ in
   imports = [
     inputs.desktop-shell.homeManagerModules.default
 
-    #./programs/zen-browser.nix
+    ./programs/zen-browser.nix
     ./programs/btop.nix
     ./programs/clang.nix
-    ./programs/firefox.nix
     ./programs/fzf.nix 
     ./programs/git.nix
     ./programs/hyprland.nix
