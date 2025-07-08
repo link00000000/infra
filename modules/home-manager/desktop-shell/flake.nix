@@ -14,34 +14,23 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
+    astal = {
+      url = "github:aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ags = {
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.astal.follows = "astal";
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ags,
-  }: let
+  outputs = { self, nixpkgs, ags, astal, ... }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     pname = "my-shell";
     entry = "app.ts";
-
-    astalPackages = with ags.packages.${system}; [
-      io
-      astal4 # or astal3 for gtk3
-      # notifd tray wireplumber
-    ];
-
-    extraPackages =
-      astalPackages
-      ++ [
-        pkgs.libadwaita
-        pkgs.libsoup_3
-      ];
   in {
     packages.${system} = {
       default = self.packages.${system}.desktop-shell;
@@ -55,18 +44,37 @@
           ags.packages.${system}.default
         ];
 
-        buildInputs = extraPackages ++ [pkgs.gjs];
+        buildInputs = [
+          pkgs.glib
+          pkgs.gjs
+          astal.packages.${system}.io
+          astal.packages.${system}.astal4
+          astal.packages.${system}.battery
+        ];
 
-        installPhase = ''
-          runHook preInstall
+        installPhase = # bash
+          ''
+            runHook preInstall
 
-          mkdir -p $out/bin
-          mkdir -p $out/share
-          cp -r * $out/share
-          ags bundle ${entry} $out/bin/${pname} -d "SRC='$out/share'"
+            mkdir -p $out/bin
+            mkdir -p $out/share
+            cp -r * $out/share
+            ags bundle ${entry} $out/bin/${pname} -d "SRC='$out/share'"
 
-          runHook postInstall
-        '';
+            runHook postInstall
+          '';
+
+        preFixup = let
+          runtimeExecutable = [];
+        in if ((builtins.length runtimeExecutable) > 0) then # bash
+          ''
+            gappsWrapperArgs+=(
+              --prefix PATH : ${pkgs.lib.makeBinPath ([
+                # runtime executables
+              ])}
+            )
+          ''
+        else "";
       };
     };
 
@@ -217,7 +225,13 @@
       in pkgs.mkShell {
         buildInputs = [
           (ags.packages.${system}.default.override {
-            inherit extraPackages;
+            #inherit extraPackages;
+            extraPackages = [
+          pkgs.glib
+          pkgs.gjs
+          astal.packages.${system}.io
+          astal.packages.${system}.astal4
+            ];
           })
         ];
 
