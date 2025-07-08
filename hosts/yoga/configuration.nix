@@ -80,6 +80,10 @@
     inputs.desktop-shell.packages.${pkgs.system}.desktop-shell
   ];
 
+  swapDevices = [
+    { device = "/swapfile"; size = 16 * 1024; }
+  ];
+
   # Do not change
   system.stateVersion = "20.03";
 }
