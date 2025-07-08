@@ -58,28 +58,6 @@
     LIBVA_DRIVER_NAME = "iHD";
   };
 
-  /*
-    systemd.user.services.desktop-shell = {
-      unitConfig = {
-        Description = "A custom desktop shell made with AGS";
-        PartOf = ["graphical-session.target"];
-        After = ["graphical-session-pre.target"];
-      };
-
-      serviceConfig = {
-        ExecStart = "${inputs.desktop-shell.packages.${pkgs.system}.desktop-shell}/bin/my-shell";
-        Restart = "on-failure";
-        KillMode = "mixed";
-      };
-
-      wantedBy = ["graphical-session.target"];
-    };
-  */
-
-  environment.systemPackages = [
-    inputs.desktop-shell.packages.${pkgs.system}.desktop-shell
-  ];
-
   swapDevices = [
     { device = "/swapfile"; size = 16 * 1024; }
   ];

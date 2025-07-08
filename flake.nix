@@ -32,8 +32,6 @@
 
     zen-browser.url = "path:./modules/zen-browser";
 
-    desktop-shell.url = "./modules/home-manager/desktop-shell";
-
     # TODO: Setup impemanence
     # TODO: Setup Mic92/nix-fast-build
   };
