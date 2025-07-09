@@ -1,7 +1,7 @@
 {
   description = "A custom desktop shell for Wayland compositors";
 
-inputs = {
+  inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
@@ -20,13 +20,18 @@ inputs = {
           cmake
           pkg-config
           gtk4-layer-shell
-          gcc
+          clang
         ];
       in {
         formatter = pkgs.nixpkgs-fmt;
 
         devShell = pkgs.mkShell {
-          packages = buildInputs;
+          packages = with pkgs; [
+            bash-language-server
+            clang-tools
+            gum
+            inotify-tools
+          ] ++ buildInputs;
         };
 
         packages = {
@@ -37,7 +42,7 @@ inputs = {
 
             src = ./.;
 
-            nativeBuildInputs = [ pkgs.cmake pkgs.pkg-config pkgs.breakpointHook ];
+            nativeBuildInputs = [ pkgs.cmake pkgs.pkg-config ];
             buildInputs = buildInputs;
 
             cmakeFlags = [
@@ -54,5 +59,45 @@ inputs = {
             '';
           };
         };
-      });
+      }) // {
+        homeModules = {
+          default = self.homeModules.desktop-shell;
+          desktop-shell = { config, pkgs, lib, ... }:
+          let
+            cfg = config.programs.desktop-shell;
+            system = pkgs.stdenv.hostPlatform.system;
+          in
+          {
+            options.programs.desktop-shell = {
+              enable = lib.mkEnableOption "desktop-shell";
+
+              package = lib.mkOption {
+                type = lib.types.package;
+                default = self.packages.${system}.desktop-shell;
+                description = "The desktop-shell package to use.";
+              };
+            };
+
+            config = lib.mkIf cfg.enable {
+              systemd.user.services.desktop-shell = {
+                Unit = {
+                  Description = "A custom desktop shell for Wayland compositors";
+                  PartOf = ["graphical-session.target"];
+                  After = ["graphical-session-pre.target"];
+                };
+
+                Service = {
+                  ExecStart = "${cfg.package}/bin/desktop-shell";
+                  Restart = "on-failure";
+                  KillMode = "mixed";
+                };
+
+                Install = {
+                  WantedBy = ["graphical-session.target"];
+                };
+              };
+            };
+          };
+        };
+      };
 }

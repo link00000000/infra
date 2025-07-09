@@ -1,10 +1,12 @@
-{ ... }:
+{ inputs, ... }:
 
 let
   home-directory = "/home/logan";
 in
 {
   imports = [
+    inputs.desktop-shell.homeModules.default
+
     ./programs/zen-browser.nix
     ./programs/btop.nix
     ./programs/clang.nix
@@ -61,4 +63,5 @@ in
   };
 
   programs.home-manager.enable = true;
+  programs.desktop-shell.enable = true;
 }
