@@ -32,6 +32,8 @@
             clang-tools
             gum
             inotify-tools
+            coreutils
+            argc
           ] ++ buildInputs;
         };
 

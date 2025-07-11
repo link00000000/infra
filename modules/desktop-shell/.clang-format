@@ -23,6 +23,7 @@ BreakBeforeBraces: Allman
 BreakBeforeTernaryOperators: 'true'
 BreakConstructorInitializers: BeforeComma
 BreakInheritanceList: BeforeComma
+ColumnLimit: 0 # A column limit of 0 means that there is no column limit. In this case, clang-format will respect the input's line breaking decisions within statements unless they contradict other rules.
 CompactNamespaces: 'false'
 ConstructorInitializerAllOnOneLineOrOnePerLine: 'true'
 ConstructorInitializerIndentWidth: '4'
