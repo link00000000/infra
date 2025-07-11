@@ -5,22 +5,23 @@
 
 #include "BarWidget.h"
 
+class Window;
+
 class Application
 {
 public:
-  Application();
-  ~Application();
+    Application();
+    ~Application();
 
-  GtkApplication* GetGtkApplication() const;
+    GtkApplication* getGtkApplication() const;
 
-  void OnActivated();
+    void onActivated();
 
-  int Run(int argc, char** argv);
+    int run(int argc, char** argv);
 
 private:
-  GtkApplication* m_GtkApplication;
+    GtkApplication* m_gtkApplication;
 
-  std::unique_ptr<class Window> m_Window;
-  std::unique_ptr<BarWidget> m_BarWidget;
+    std::unique_ptr<Window> m_window;
+    std::unique_ptr<BarWidget> m_barWidget;
 };
-

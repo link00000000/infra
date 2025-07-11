@@ -2,13 +2,15 @@
 
 #include <gtk/gtk.h>
 
-class BarWidget {
-public:
-  BarWidget();
+#include "Widget.h"
 
-  GtkWidget* GetGtkWidget() const;
+class BarWidget : public Widget
+{
+public:
+    BarWidget();
+
+    GtkWidget* GetGtkWidget() const;
 
 private:
-  GtkWidget* m_GtkBoxWidget;
+    GtkWidget* m_gtkBoxWidget;
 };
-

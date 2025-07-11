@@ -13,6 +13,7 @@ add_executable(desktop-shell
   src/Application.cpp
   src/BarWidget.cpp
   src/Window.cpp
+  src/WorkspaceWidget.cpp
   src/main.cpp
 )
 install(TARGETS desktop-shell

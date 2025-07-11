@@ -3,43 +3,47 @@
 #include "Application.h"
 #include "Window.h"
 
-void OnGtkActivateSignalCallback(GtkApplication* GtkApplication, gpointer UserData)
+void OnGtkActivateSignalCallback(
+    GtkApplication* GtkApplication, gpointer UserData)
 {
-  static_cast<class Application*>(UserData)->OnActivated();
+    static_cast<class Application*>(UserData)->onActivated();
 }
 
 Application::Application()
 {
-  m_GtkApplication = gtk_application_new("com.github.link00000000.DesktopShell", G_APPLICATION_DEFAULT_FLAGS);
-  g_signal_connect(m_GtkApplication, "activate", G_CALLBACK(OnGtkActivateSignalCallback), this);
+    m_gtkApplication = gtk_application_new(
+        "com.github.link00000000.DesktopShell", G_APPLICATION_DEFAULT_FLAGS);
+    g_signal_connect(m_gtkApplication,
+        "activate",
+        G_CALLBACK(OnGtkActivateSignalCallback),
+        this);
 }
 
 Application::~Application()
 {
-  g_object_unref(m_GtkApplication);
+    g_object_unref(m_gtkApplication);
 }
 
-GtkApplication* Application::GetGtkApplication() const
+GtkApplication* Application::getGtkApplication() const
 {
-  return m_GtkApplication;
+    return m_gtkApplication;
 }
 
-void Application::OnActivated()
+void Application::onActivated()
 {
-  m_Window = std::make_unique<Window>(this);
-  m_BarWidget = std::make_unique<BarWidget>();
+    m_window = std::make_unique<Window>(this);
+    m_barWidget = std::make_unique<BarWidget>();
 
-  gtk_widget_set_halign(m_BarWidget->GetGtkWidget(), GTK_ALIGN_START);
-  gtk_widget_set_valign(m_BarWidget->GetGtkWidget(), GTK_ALIGN_CENTER);
+    gtk_widget_set_halign(m_barWidget->GetGtkWidget(), GTK_ALIGN_START);
+    gtk_widget_set_valign(m_barWidget->GetGtkWidget(), GTK_ALIGN_CENTER);
 
-  gtk_window_set_child(GTK_WINDOW(m_Window->GetGtkWidget()), m_BarWidget->GetGtkWidget());
+    gtk_window_set_child(
+        GTK_WINDOW(m_window->getGtkWidget()), m_barWidget->GetGtkWidget());
 
-  gtk_widget_show(m_Window->GetGtkWidget());
+    gtk_widget_show(m_window->getGtkWidget());
 }
 
-int Application::Run(int argc, char** argv)
+int Application::run(int argc, char** argv)
 {
-  return g_application_run(G_APPLICATION(m_GtkApplication), argc, argv);
+    return g_application_run(G_APPLICATION(m_gtkApplication), argc, argv);
 }
-
-

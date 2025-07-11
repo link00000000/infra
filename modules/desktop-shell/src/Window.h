@@ -7,10 +7,10 @@ class Application;
 class Window
 {
 public:
-  explicit Window(Application* Application);
+    explicit Window(Application* application);
 
-  GtkWidget* GetGtkWidget() const;
+    GtkWidget* getGtkWidget() const;
 
 private:
-  GtkWidget* m_GtkWindowWidget;
+    GtkWidget* m_gtkWindowWidget;
 };
