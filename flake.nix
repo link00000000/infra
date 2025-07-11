@@ -86,6 +86,7 @@
 
             modules = [
               ./hosts/wsl/configuration.nix
+              (inputs.zen-browser.nixosModules.zen-browser-overlay { inherit system; })
               inputs.stylix.nixosModules.stylix
               inputs.nixos-wsl.nixosModules.default
               inputs.home-manager.nixosModules.home-manager
