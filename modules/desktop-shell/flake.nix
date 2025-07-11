@@ -15,6 +15,7 @@
 
         buildInputs = with pkgs; [
           gtk4
+          gtkmm4
           wayland
           glib
           cmake

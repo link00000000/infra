@@ -8,9 +8,4 @@ class BarWidget : public Widget
 {
 public:
     BarWidget();
-
-    GtkWidget* GetGtkWidget() const;
-
-private:
-    GtkWidget* m_gtkBoxWidget;
 };

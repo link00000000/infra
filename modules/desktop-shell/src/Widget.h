@@ -5,10 +5,10 @@
 class Widget
 {
 public:
-    GtkWidget* GetRootGtkWidget() const;
+    GtkWidget* getRootGtkWidget() const;
 
 protected:
-    void SetRootGtkWidget(GtkWidget* inGtkWidget);
+    void setRootGtkWidget(GtkWidget* inGtkWidget);
 
 private:
     GtkWidget* m_RootGtkWidget;

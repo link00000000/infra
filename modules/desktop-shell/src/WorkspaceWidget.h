@@ -2,13 +2,10 @@
 
 #include <gtk/gtk.h>
 
-class WorkspaceWidget
+#include "Widget.h"
+
+class WorkspaceWidget : public Widget
 {
 public:
-    explicit WorkspaceWidget();
-
-    GtkWidget* getGtkWidget() const;
-
-private:
-    GtkWidget* m_gtkLabelWidget;
+    WorkspaceWidget();
 };

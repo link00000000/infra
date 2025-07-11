@@ -1,11 +1,11 @@
 #include "Widget.h"
 
-GtkWidget* Widget::GetRootGtkWidget() const
+GtkWidget* Widget::getRootGtkWidget() const
 {
     return m_RootGtkWidget;
 }
 
-void Widget::SetRootGtkWidget(GtkWidget* inGtkWidget)
+void Widget::setRootGtkWidget(GtkWidget* inGtkWidget)
 {
     m_RootGtkWidget = inGtkWidget;
 }

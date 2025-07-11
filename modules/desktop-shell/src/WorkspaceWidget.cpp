@@ -2,10 +2,7 @@
 
 WorkspaceWidget::WorkspaceWidget()
 {
-    m_gtkLabelWidget = gtk_label_new("OTHER");
+    auto label = gtk_label_new("OTHER");
+    setRootGtkWidget(label);
 }
 
-GtkWidget* WorkspaceWidget::getGtkWidget() const
-{
-    return m_gtkLabelWidget;
-}
