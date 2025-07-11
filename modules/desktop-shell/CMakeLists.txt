@@ -9,7 +9,12 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK4 REQUIRED gtk4)
 pkg_check_modules(GTK_LAYER_SHELL REQUIRED gtk4-layer-shell-0)
 
-add_executable(desktop-shell src/main.cpp)
+add_executable(desktop-shell
+  src/Application.cpp
+  src/BarWidget.cpp
+  src/Window.cpp
+  src/main.cpp
+)
 install(TARGETS desktop-shell
         RUNTIME DESTINATION bin)
 

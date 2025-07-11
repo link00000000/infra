@@ -71,10 +71,15 @@ main() {
 
     log info "Building..."
     cmake --build build
+    CMAKE_EXITCODE=$?
 
-    STATE="running"
-    run &
-    DESKTOPSHELL_PID=$!
+    if [[ $CMAKE_EXITCODE -eq 0 ]]; then
+      STATE="running"
+      run &
+      DESKTOPSHELL_PID=$!
+    else
+      log error "\"cmake --build build\" exited with exit code $CMAKE_EXITCODE. Waiting for changes before restarting..."
+    fi
 
     log info "Waiting for changes... (^C to quit)"
     inotifywait --quiet --recursive --event create,modify,delete --exclude '^\./build/' .
