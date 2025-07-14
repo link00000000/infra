@@ -9,6 +9,9 @@
     environmentVariables = builtins.mapAttrs (name: value: "${builtins.toString value}") config.home.sessionVariables;
 
     extraConfig = /* nu */ ''
+      # HACK: Workaround until https://github.com/nushell/nushell/issues/5585 is fixed
+      $env.config.shell_integration.osc133 = false;
+
       def "config home" [] {
         cd /etc/nixos/users/logan
         ^$env.EDITOR default.nix
