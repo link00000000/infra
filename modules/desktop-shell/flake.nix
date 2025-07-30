@@ -22,6 +22,7 @@
           pkg-config
           gtk4-layer-shell
           clang
+          ninja
         ];
       in {
         formatter = pkgs.nixpkgs-fmt;
