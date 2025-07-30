@@ -51,7 +51,7 @@ run() {
     mkdir -p build
 
     log info "Building..."
-    cmake --build build -G Ninja
+    cmake --build build
     CMAKE_EXITCODE=$?
 
     if [[ $CMAKE_EXITCODE -eq 0 ]]; then
