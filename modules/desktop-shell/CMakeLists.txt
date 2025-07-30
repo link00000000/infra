@@ -11,12 +11,6 @@ pkg_check_modules(GTKMM REQUIRED gtkmm-4.0)
 pkg_check_modules(GTK_LAYER_SHELL REQUIRED gtk4-layer-shell-0)
 
 add_executable(desktop-shell
-    #src/Application.cpp
-  #src/BarWidget.cpp
-  #src/VolumeIconWidget.cpp
-  #src/Widget.cpp
-  #src/Window.cpp
-  #src/WorkspaceWidget.cpp
   src/main.cpp
 )
 install(TARGETS desktop-shell

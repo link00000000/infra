@@ -51,7 +51,6 @@ MainWindow::MainWindow()
     box.set_valign(Gtk::Align::FILL);
     set_child(box);
 
-    Gtk::Label label{"Hello from gtkmm"};
     BatteryIndicatorWidget batteryIndicatorWidget;
     box.append(batteryIndicatorWidget);
 }
