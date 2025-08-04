@@ -1,36 +1,22 @@
-#include "gtk4-layer-shell/gtk4-layer-shell.h"
-#include "gtkmm/application.h"
-#include "gtkmm/box.h"
-#include "gtkmm/enums.h"
-#include "gtkmm/label.h"
-#include "gtkmm/levelbar.h"
-#include "gtkmm/widget.h"
-#include "gtkmm/window.h"
+#include <gtk4-layer-shell/gtk4-layer-shell.h>
+#include <gtkmm/application.h>
+#include <gtkmm/box.h>
+#include <gtkmm/cssprovider.h>
+#include <gtkmm/enums.h>
+#include <gtkmm/label.h>
+#include <gtkmm/levelbar.h>
+#include <gtkmm/object.h>
+#include <gtkmm/widget.h>
+#include <gtkmm/window.h>
 
-class BatteryIndicatorWidget : public Gtk::Box
-{
-public:
-    BatteryIndicatorWidget();
-};
+#include "widgets/battery_indicator_widget.h"
+#include "widgets/style.h"
 
 class MainWindow : public Gtk::Window
 {
 public:
     MainWindow();
 };
-
-BatteryIndicatorWidget::BatteryIndicatorWidget()
-{
-    Gtk::Label label{"Battery Indicator:"};
-    append(label);
-
-    Gtk::LevelBar levelBar{};
-    levelBar.set_mode(Gtk::LevelBar::Mode::CONTINUOUS);
-    levelBar.set_max_value(1.0);
-    levelBar.set_min_value(0.0);
-    levelBar.set_value(0.5);
-    append(levelBar);
-}
 
 MainWindow::MainWindow()
 {
@@ -46,17 +32,25 @@ MainWindow::MainWindow()
     set_resizable(false);
     set_default_size(1920, 20);
 
-    Gtk::Box box{Gtk::Orientation::VERTICAL};
-    box.set_halign(Gtk::Align::FILL);
-    box.set_valign(Gtk::Align::FILL);
-    set_child(box);
+    auto box = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::VERTICAL);
+    box->set_halign(Gtk::Align::FILL);
+    box->set_valign(Gtk::Align::FILL);
+    set_child(*box);
 
-    BatteryIndicatorWidget batteryIndicatorWidget;
-    box.append(batteryIndicatorWidget);
+    auto batteryIndicatorWidget = Gtk::make_managed<Widgets::BatteryIndicatorWidget>();
+    box->append(*batteryIndicatorWidget);
 }
 
 int main(int argc, char** argv)
 {
     auto application = Gtk::Application::create("com.github.link00000000.DesktopShell");
+
+    auto css_provider = Gtk::CssProvider::create();
+    css_provider->load_from_data(Widgets::Style);
+    Gtk::StyleContext::add_provider_for_display(
+        Gdk::Display::get_default(),
+        css_provider,
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
     return application->make_window_and_run<MainWindow>(argc, argv);
 }

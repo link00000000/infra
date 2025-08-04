@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(desktop-shell VERSION 0.1.0 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -10,11 +10,13 @@ pkg_check_modules(GTK4 REQUIRED gtk4)
 pkg_check_modules(GTKMM REQUIRED gtkmm-4.0)
 pkg_check_modules(GTK_LAYER_SHELL REQUIRED gtk4-layer-shell-0)
 
-add_executable(desktop-shell
-  src/main.cpp
-)
+file(GLOB_RECURSE CPP_FILES CONFIGURE_DEPENDS src/*.cpp)
+
+add_executable(desktop-shell ${CPP_FILES})
+
 install(TARGETS desktop-shell
-        RUNTIME DESTINATION bin)
+    RUNTIME DESTINATION bin
+)
 
 target_include_directories(desktop-shell PRIVATE
     ${GTK4_INCLUDE_DIRS}
