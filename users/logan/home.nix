@@ -63,5 +63,5 @@ in
   };
 
   programs.home-manager.enable = true;
-  programs.desktop-shell.enable = true;
+  programs.desktop-shell.enable = false;
 }
