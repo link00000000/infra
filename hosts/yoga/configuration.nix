@@ -21,7 +21,7 @@
     ../../system/sound.nix
     ../../system/sudo.nix
     ../../system/systemd-boot.nix
-    #../../system/tailscale.nix
+    ../../system/tailscale.nix
     ../../system/utils.nix
     ../../system/wireshark.nix
 
